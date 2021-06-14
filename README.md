@@ -1,18 +1,28 @@
 # Data-Modeling-with-Postgr
-
 In this project, I have worked on the dataset of an startup company called "sparkify", where the company need the detail information of their customers. So, here I have extracted the data which was in an json format and converted it into and SQL data i.e tablaur format in the following manner:
-1. Inorder to model the dataset for efficient manner, I used the star-schema containing one fact table and five dimention tables.
-2. Created, droped and inserted the data into those tables.
-3. using the ETL(Extract Transfer load ) process and extracted the dataset of json format into the tables which was created.
+1. Inorder to model the dataset in efficient manner, I used the star-schema containing one fact table and five dimention tables as 
+mentioned:
 
-1.Here in this project, we are using the files namely
-etl.ipunb
-sql_queries.py
-test.ipynb
-etl.py
+FACT TABLE:
+1.songplays - records in log data associated with song plays i.e. records with page NextSong
+Schema = songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
+ 
+DIMENTION TABLE:(usage and their schema)
+1.users - users in the app
+Schema = user_id, first_name, last_name, gender, level 
+2.songs - songs in music database
+Schema = song_id, title, artist_id, year, duration
+3.artists - artists in music database
+Schema = artist_id, name, location, latitude, longitude
+4.time - timestamps of records in songplays broken down into specific units
+Schema = start_time, hour, day, week, month, year, weekday
 
-What data and how to run these files:
- 1. sql_queries.py: Here i am going to write the postgres code of creating, droping and inserting the data for the above mentioned tables.
- 2. test.ipynb: This file is used to test my all files, wheather they are giving proper output or not. Inorder to run any file use command "%run <file name>".
- 3. etl.ipunb: Here we are going to generate our etl pipelines and extract the data from the data folder and transfer them to out tables and store them.
- 4. etl.py: this folder contains all the flow of our process used in etl.ipunb and we can run this file in the etl.ipunb using the command "%run etl.py"
+2. created a python file named sql_queries.py (contains all your sql queries, and is imported into the last three files above)
+3. created a python file named create_tables.py (drops and creates your tables. You run this file to reset your tables before each time you run your ETL scripts) 
+4. created a python notebook named test.ipynb(displays the first few rows of each table to let you check the database)
+5. created a python notebook named etl.ipynb(reads and processes a single file from song_data and log_data and loads the data into your tables. This notebook contains detailed instructions on the ETL process for each of the tables.)
+6. created a python file named etl.py(reads and processes files from song_data and log_data and loads them into your tables. You can fill this out based on your work in the ETL notebook).
+
+In this flow, I have created my project which extracts the data from the sparkify dataset which is in json format and converts them into an tabular format as in designed schema:
+
+NOTE: In order to run any files use command %run <file name> in the jupiter notebook. 
